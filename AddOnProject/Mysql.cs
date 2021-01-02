@@ -13,9 +13,17 @@ namespace AddOnProject
 {
     public partial class Mysql : Form
     {
-        MySqlConnection conn = new MySqlConnection(
-            "Server=localhost;Database=saradb;Uid=kdw59520;Pwd=rlaehdnjs12!"
-            );
+  
+        private static string server = "localhost";
+        private static string db = "saradb";
+        private static string uid = "kdw59520";
+        private static string pwd = "rlaehdnjs12!";
+        // 밑의 정보를 암호화 해야합니다.
+        private static string value = "Server=" + server + ";Database=" + db + ";Uid=" + uid + ";Pwd=" + pwd + ";";
+        
+        //private static string value = "Server=localhost;Database=saradb;Uid=kdw59520;Pwd=rlaehdnjs12!";
+        
+        MySqlConnection conn = new MySqlConnection(value);
 
         public Mysql()
         {
@@ -24,7 +32,7 @@ namespace AddOnProject
 
         private void button_Mysql_Insert(object sender, EventArgs e)
         {
-            String query = "INSERT INTO user (name, password) VALUES('" + nameBox.Text.ToString() + "', " + pwdBox.Text.ToString() + ")";
+            String query = "INSERT INTO user(name, password) VALUES('" + nameBox.Text.ToString() + "', '" + pwdBox.Text.ToString() + "')";
 
             conn.Open();
             MySqlCommand command = new MySqlCommand(query, conn);
