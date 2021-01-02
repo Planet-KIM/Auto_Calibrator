@@ -60,7 +60,8 @@ namespace AddOnProject
 
         private void event_New(object sender, RibbonControlEventArgs e)
         {
-
+            Mysql mysql = new Mysql();
+            mysql.Show();
         }
     }
 }
