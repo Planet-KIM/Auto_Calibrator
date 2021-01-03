@@ -24,7 +24,7 @@ namespace AddOnProject
         //private static string value = "Server=localhost;Database=saradb;Uid=kdw59520;Pwd=rlaehdnjs12!";
         
         MySqlConnection conn = new MySqlConnection(value);
-
+    
         public Mysql()
         {
             InitializeComponent();
