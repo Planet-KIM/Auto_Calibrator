@@ -19,6 +19,9 @@
 #### 2. Microsoft.Office.Interop.Excel
 - Excel을 다루기 위한 라이브러리입니다.
 
+#### 3. Newtonsoft._Json  
+- JSON을 다루기 위한 라이브러리입니다.
+
 ## DEBUG
 ### 실행법
 #### - 1. 상단탭에서 파일탭 선택 후 옵션창을 킵니다.
