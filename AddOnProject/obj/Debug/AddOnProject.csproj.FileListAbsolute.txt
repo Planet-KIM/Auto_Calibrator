@@ -75,3 +75,5 @@ C:\Temp\gitproject\Auto_Calibrator\AddOnProject\obj\Debug\AddOnProject.csproj.Co
 C:\Temp\gitproject\Auto_Calibrator\AddOnProject\obj\Debug\AddOnProject.csproj.CopyComplete
 C:\Temp\gitproject\Auto_Calibrator\AddOnProject\obj\Debug\AddOnProject.dll
 C:\Temp\gitproject\Auto_Calibrator\AddOnProject\obj\Debug\AddOnProject.pdb
+C:\Temp\gitproject\Auto_Calibrator\AddOnProject\bin\Debug\Newtonsoft.Json.dll
+C:\Temp\gitproject\Auto_Calibrator\AddOnProject\bin\Debug\Newtonsoft.Json.xml
