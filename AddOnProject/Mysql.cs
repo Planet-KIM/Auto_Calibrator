@@ -81,11 +81,19 @@ namespace AddOnProject
 
         private void button_Mysql_Insert(object sender, EventArgs e)
         {
+            // 난수생성 후 문자열로 변경
+            Random number = new Random();
+            string rnumber = number.Next(10000000, 99999999).ToString();
+
+            // 암호화 생성 (랜던 값 키워드로 주자)
+            var encrypt = new Encryption(rnumber);
+            string pwd_encrypt = encrypt.result(EncryptType.Encrypt, pwdBox.Text.ToString());
+
             // INSERT 하기 위한 query문 생성하기
             string query = "INSERT INTO user(name, password) VALUES('" +
                 nameBox.Text.ToString() + 
                 "', '" +
-                pwdBox.Text.ToString() +
+                pwd_encrypt +
                 "')";
 
             conn.Open();
