@@ -47,6 +47,7 @@ namespace AddOnProject
             // 
             this.pwdBox.Location = new System.Drawing.Point(321, 156);
             this.pwdBox.Name = "pwdBox";
+            this.pwdBox.PasswordChar = '*';
             this.pwdBox.Size = new System.Drawing.Size(105, 21);
             this.pwdBox.TabIndex = 1;
             // 
@@ -88,13 +89,13 @@ namespace AddOnProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(606, 408);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pwdBox);
             this.Controls.Add(this.nameBox);
             this.Name = "Mysql";
-            this.Size = new System.Drawing.Size(622, 447);
             this.ResumeLayout(false);
             this.PerformLayout();
 

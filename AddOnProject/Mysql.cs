@@ -16,14 +16,19 @@ namespace AddOnProject
 {
     public partial class Mysql : Form
     {
+        // 폴더 경로 생성
         private static string current_path = Directory.GetCurrentDirectory() + @"\Mysql";
         DirectoryInfo cur_path = new DirectoryInfo(current_path);
 
-
-        // 밑의 정보를 암호화 해야합니다.
+        // 파일 경로 생성
+        private static string json_file = current_path + @"\mysql_data.json";
+        FileInfo jfile = new FileInfo(json_file);
+      
+        // Database에 넣을 값을 합쳐야 하기 때문에 생성자 생성
         private static string value = string.Empty;
         MySqlConnection conn;
 
+        // Database 생성자를 생성하기 위한 class
         public class Database {
             public string SERVER = string.Empty;
             public string DB = string.Empty;
@@ -41,29 +46,47 @@ namespace AddOnProject
                 cur_path.Create(); }
             // 파일이 존재하면 json 파일을 읽어와서 초기화 작업하기
             else {
-                using (StreamReader file = File.OpenText(current_path + @"\mysql_data.json"))
-                using (JsonTextReader json_reader = new JsonTextReader(file)) {
-                    JObject json = (JObject)JToken.ReadFrom(json_reader);
-                    
-                    Database _saradb = new Database();
-                    _saradb.SERVER = (string)json["Server"].ToString();
-                    _saradb.DB = (string)json["Database"].ToString();
-                    _saradb.UID = (string)json["Uid"].ToString();
-                    _saradb.PWD = (string)json["Pwd"].ToString();
+                try
+                {
+                    // 파일이 있는지 유무를 파악하기 위한 것. 없으면 예외발생
+                    if (!jfile.Exists)
+                    {
+                        throw new FileNotFoundException(json_file + " : " + "File Not Found!");
+                    }
+                    // 파일이 존재하면 Json 파일을 읽어와서 초기화 작업
+                    else {
+                        using (StreamReader file = File.OpenText(current_path + @"\mysql_data.json"))
+                        using (JsonTextReader json_reader = new JsonTextReader(file))
+                        {
+                            JObject json = (JObject)JToken.ReadFrom(json_reader);
 
-                    value = "Server=" + _saradb.SERVER +
-                        ";Database=" + _saradb.DB +
-                        ";Uid=" + _saradb.UID +
-                        ";Pwd=" + _saradb.PWD + ";";
+                            Database _saradb = new Database();
+                            _saradb.SERVER = (string)json["Server"].ToString();
+                            _saradb.DB = (string)json["Database"].ToString();
+                            _saradb.UID = (string)json["Uid"].ToString();
+                            _saradb.PWD = (string)json["Pwd"].ToString();
 
-                    conn = new MySqlConnection(value);
+                            value = "Server=" + _saradb.SERVER +
+                                ";Database=" + _saradb.DB +
+                                ";Uid=" + _saradb.UID +
+                                ";Pwd=" + _saradb.PWD + ";";
+
+                            conn = new MySqlConnection(value);
+                        }
+                    }
                 }
+                catch(Exception e) { MessageBox.Show(e.Message); }         
             }
         }
 
         private void button_Mysql_Insert(object sender, EventArgs e)
         {
-            String query = "INSERT INTO user(name, password) VALUES('" + nameBox.Text.ToString() + "', '" + pwdBox.Text.ToString() + "')";
+            // INSERT 하기 위한 query문 생성하기
+            string query = "INSERT INTO user(name, password) VALUES('" +
+                nameBox.Text.ToString() + 
+                "', '" +
+                pwdBox.Text.ToString() +
+                "')";
 
             conn.Open();
             MySqlCommand command = new MySqlCommand(query, conn);
@@ -72,18 +95,21 @@ namespace AddOnProject
             {
                 if (command.ExecuteNonQuery() == 1)
                 {
-                    MessageBox.Show("INSERT SUCCESS!!" + current_path);
+                    MessageBox.Show("INSERT SUCCESS!!");
                 }
-                else {
-                    MessageBox.Show("INSERT FAILED !! ");
+                else
+                {
+                    throw new Exception("INSERT FAILED !!");
                 }
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-            conn.Close();
+            finally {
+                conn.Close();
+            }
 
         }
     }
