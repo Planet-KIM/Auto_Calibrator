@@ -1,0 +1,39 @@
+﻿<Window x:Class="Excel_Auto_Calibrator.DataSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Excel_Auto_Calibrator"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+        Title="Calibrater Setting">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <ListView Margin="10" Grid.Column="0" Grid.Row="0">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Center">
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  Header="공기차압" Width="100"/>
+                    <GridViewColumn  Header="냉매 차압" Width="100"/>
+                    <GridViewColumn  Header="방열량" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="CF 팩터 간격" Grid.Row="1" Grid.Column="0"/>
+        <TextBox Height="70" Width="100" Grid.Row="1" Grid.Column="0" Margin="0,20,480,0" />
+        <Button Grid.Column="1" Grid.Row="1" Margin="0,0,100,0" Height="90" Width="90" Content="확인"/>
+        <Button Grid.Column="1" Grid.Row="1" Margin="100,0,0,0" Height="90" Width="90" Content="취소" Click="Button_Click"/>
+    </Grid>
+</Window>
