@@ -59,8 +59,8 @@ namespace AddOnProject
                         using (JsonTextReader json_reader = new JsonTextReader(file))
                         {
                             JObject json = (JObject)JToken.ReadFrom(json_reader);
-
                             Database _saradb = new Database();
+
                             _saradb.SERVER = (string)json["Server"].ToString();
                             _saradb.DB = (string)json["Database"].ToString();
                             _saradb.UID = (string)json["Uid"].ToString();
