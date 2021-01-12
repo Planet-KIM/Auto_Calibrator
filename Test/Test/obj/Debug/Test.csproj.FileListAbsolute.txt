@@ -1,0 +1,44 @@
+C:\Users\이상준\source\repos\Test\Test\obj\Debug\Test.csprojAssemblyReference.cache
+C:\Users\이상준\source\repos\Test\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\Test.exe.config
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\Test.exe
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\Test.pdb
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\IronPython.dll
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\IronPython.Modules.dll
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\IronPython.SQLite.dll
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\IronPython.Wpf.dll
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\Microsoft.Dynamic.dll
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\Microsoft.Scripting.dll
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\Microsoft.Scripting.Metadata.dll
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\IronPython.xml
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\IronPython.Modules.xml
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\IronPython.SQLite.xml
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\IronPython.Wpf.xml
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\Microsoft.Dynamic.xml
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\Microsoft.Scripting.xml
+C:\Users\이상준\source\repos\Test\Test\bin\Debug\Microsoft.Scripting.Metadata.xml
+C:\Users\이상준\source\repos\Test\Test\obj\Debug\Test.csproj.CopyComplete
+C:\Users\이상준\source\repos\Test\Test\obj\Debug\Test.exe
+C:\Users\이상준\source\repos\Test\Test\obj\Debug\Test.pdb
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\Test.exe.config
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\Test.exe
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\Test.pdb
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\IronPython.dll
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\IronPython.Modules.dll
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\IronPython.SQLite.dll
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\IronPython.Wpf.dll
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\Microsoft.Dynamic.dll
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\Microsoft.Scripting.dll
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\Microsoft.Scripting.Metadata.dll
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\IronPython.xml
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\IronPython.Modules.xml
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\IronPython.SQLite.xml
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\IronPython.Wpf.xml
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\Microsoft.Dynamic.xml
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\Microsoft.Scripting.xml
+D:\IPP(주식회사 사라)\Test\Test\bin\Debug\Microsoft.Scripting.Metadata.xml
+D:\IPP(주식회사 사라)\Test\Test\obj\Debug\Test.csprojAssemblyReference.cache
+D:\IPP(주식회사 사라)\Test\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+D:\IPP(주식회사 사라)\Test\Test\obj\Debug\Test.csproj.CopyComplete
+D:\IPP(주식회사 사라)\Test\Test\obj\Debug\Test.exe
+D:\IPP(주식회사 사라)\Test\Test\obj\Debug\Test.pdb
