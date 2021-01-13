@@ -205,7 +205,6 @@
     can be found.
   -->
   <ItemGroup>
-    <Compile Include="DataSelector.xaml.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="Mysql.cs">
       <SubType>Form</SubType>
@@ -264,12 +263,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Ribbon.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="DataSelector.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
