@@ -21,26 +21,26 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Label FontSize="20" Content="CF Friction Air" Grid.Row="1" Grid.Column="0" ></Label>
-        <Label FontSize="20" Content="CF HeatTransfer Air" Grid.Row="2" Grid.Column="0" ></Label>
-        <Label FontSize="20" Content="CF Friction" Grid.Row="3" Grid.Column="0"></Label>
-        <Label FontSize="20" Content="CF HeatTransfer" Grid.Row="4" Grid.Column="0" ></Label>
-        <Label FontSize="20" Content="최소" Grid.Row="0" Grid.Column="1" ></Label>
-        <Label FontSize="20" Content="최대" Grid.Row="0" Grid.Column="2" ></Label>
-        <Label FontSize="20" Content="간격" Grid.Row="0" Grid.Column="3" ></Label>
-        <TextBlock Name="Min_CFFrictionAir" Grid.Row="1" Grid.Column="1"></TextBlock>
-        <TextBlock  Name="Max_CFFrictionAir" Grid.Row="1" Grid.Column="2"></TextBlock>
-        <TextBlock Name="Step_CFFrictionAir" Grid.Row="1" Grid.Column="3"></TextBlock>
-        <TextBlock Name="Min_CFHeatTransferAir" Grid.Row="2" Grid.Column="1"></TextBlock>
-        <TextBlock Name="Max_CFHeatTransferAir" Grid.Row="2" Grid.Column="2"></TextBlock>
-        <TextBlock Name="Step_CFHeatTransferAir" Grid.Row="2" Grid.Column="3"></TextBlock>
-        <TextBlock Name="Min_CFFriction" Grid.Row="3" Grid.Column="1"></TextBlock>
-        <TextBlock Name="Max_CFFriction" Grid.Row="3" Grid.Column="2"></TextBlock>
-        <TextBlock Name="Step_CFFriction" Grid.Row="3" Grid.Column="3"></TextBlock>
-        <TextBlock Name="Min_CFHeatTransfer" Grid.Row="4" Grid.Column="1"></TextBlock>
-        <TextBlock Name="Max_CFHeatTransfer" Grid.Row="4" Grid.Column="2"></TextBlock>
-        <TextBlock Name="Step_CFHeatTransfer" Grid.Row="4" Grid.Column="3"></TextBlock>
-        <Button Name="Confirm_Button" Click="Confirm_Button_Click"  Content="확인" Grid.Row="5" Grid.Column="2" ></Button>
-        <Button Name="Cancel_Button"  Content="취소" Grid.Row="5" Grid.Column="3" Background="#FFE23F3F" ></Button>
+        <Label FontSize="20" Content="CF Friction Air" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ></Label>
+        <Label FontSize="20" Content="CF HeatTransfer Air" Grid.Row="2" Grid.Column="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ></Label>
+        <Label FontSize="20" Content="CF Friction" Grid.Row="3" Grid.Column="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ></Label>
+        <Label FontSize="20" Content="CF HeatTransfer" Grid.Row="4" Grid.Column="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ></Label>
+        <Label FontSize="20" Content="최소" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ></Label>
+        <Label FontSize="20" Content="최대" Grid.Row="0" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ></Label>
+        <Label FontSize="20" Content="간격" Grid.Row="0" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ></Label>
+        <TextBox Name="Min_CFFrictionAir" Grid.Row="1" Grid.Column="1" TextChanged="Min_CFFrictionAir_TextChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ></TextBox>
+        <TextBox  Name="Max_CFFrictionAir" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+        <TextBox Name="Step_CFFrictionAir" Grid.Row="1" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+        <TextBox Name="Min_CFHeatTransferAir" Grid.Row="2" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ></TextBox>
+        <TextBox Name="Max_CFHeatTransferAir" Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+        <TextBox Name="Step_CFHeatTransferAir" Grid.Row="2" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+        <TextBox Name="Min_CFFriction" Grid.Row="3" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+        <TextBox Name="Max_CFFriction" Grid.Row="3" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+        <TextBox Name="Step_CFFriction" Grid.Row="3" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+        <TextBox Name="Min_CFHeatTransfer" Grid.Row="4" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+        <TextBox Name="Max_CFHeatTransfer" Grid.Row="4" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+        <TextBox Name="Step_CFHeatTransfer" Grid.Row="4" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+        <Button Name="Confirm_Button" Click="Confirm_Button_Click"  Content="확인" Grid.Row="5" Background="#FFF3F3F3"  Grid.Column="2" ></Button>
+        <Button Name="Cancel_Button"  Content="취소" Grid.Row="5" Grid.Column="3" Background="#FFF3F3F3" Click="Cancel_Button_Click" ></Button>
     </Grid>
 </Window>

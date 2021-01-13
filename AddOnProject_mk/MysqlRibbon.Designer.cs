@@ -10,10 +10,14 @@ namespace AddOnProject
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+
+
         public MysqlRibbon()
             : base(Globals.Factory.GetRibbonFactory())
         {
             InitializeComponent();
+            
+
         }
 
         /// <summary> 
