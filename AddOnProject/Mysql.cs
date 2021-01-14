@@ -74,6 +74,7 @@ namespace AddOnProject
                             conn = new MySqlConnection(value);
                         }
                     }
+                    
                 }
                 catch(Exception e) { MessageBox.Show(e.Message); }         
             }
@@ -118,7 +119,67 @@ namespace AddOnProject
             finally {
                 conn.Close();
             }
+        }
+
+
+        private void button_Fmu_Insert(object sender, EventArgs e)
+        {
+            if(FmuBox.Text.ToString() == "")
+            {
+                return;
+
+            }
+
+            string query = "INSERT INTO fmu(fmuname) VALUES('" +
+             FmuBox.Text.ToString() +
+             "')";
+
+            conn.Open();
+            MySqlCommand command = new MySqlCommand(query, conn);
+
+            try
+            {
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("INSERT SUCCESS!!");
+                }
+                else
+                {
+                    throw new Exception("INSERT FAILED !!");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                FmuBox.Clear();
+                conn.Close();
+            }
+
+        }
+
+        private void button_File_Select(object sender, EventArgs e)
+        {
+            FmuBox.Clear();
+            String file_path = null;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "C:\\";
+            openFileDialog.Filter = "fmu files (*.fmu)|*.fmu|All files (*.*)|*.*";
+
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                file_path = openFileDialog.FileName;
+                FmuBox.Text = file_path.Split('\\')[file_path.Split('\\').Length - 1];
+            }
+        }
+
+        private void button_Fmu_Select(object sender, EventArgs e)
+        {
 
         }
     }
+
 }

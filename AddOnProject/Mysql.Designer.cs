@@ -31,68 +31,130 @@ namespace AddOnProject
         {
             this.nameBox = new System.Windows.Forms.TextBox();
             this.pwdBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.TextLabel = new System.Windows.Forms.Label();
+            this.PasswordText = new System.Windows.Forms.Label();
+            this.UserInsert = new System.Windows.Forms.Button();
+            this.FmuInsert = new System.Windows.Forms.Button();
+            this.FmuLabel = new System.Windows.Forms.Label();
+            this.FmuBox = new System.Windows.Forms.TextBox();
+            this.FmuSelect = new System.Windows.Forms.Button();
+            this.SELECT = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nameBox
             // 
-            this.nameBox.Location = new System.Drawing.Point(321, 115);
+            this.nameBox.Location = new System.Drawing.Point(138, 42);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(105, 21);
             this.nameBox.TabIndex = 0;
             // 
             // pwdBox
             // 
-            this.pwdBox.Location = new System.Drawing.Point(321, 156);
+            this.pwdBox.Location = new System.Drawing.Point(138, 83);
             this.pwdBox.Name = "pwdBox";
             this.pwdBox.PasswordChar = '*';
             this.pwdBox.Size = new System.Drawing.Size(105, 21);
             this.pwdBox.TabIndex = 1;
             // 
-            // label1
+            // TextLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.DarkGray;
-            this.label1.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(212, 117);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 19);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "이      름 :";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TextLabel.AutoSize = true;
+            this.TextLabel.BackColor = System.Drawing.Color.DarkGray;
+            this.TextLabel.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TextLabel.Location = new System.Drawing.Point(29, 44);
+            this.TextLabel.Name = "TextLabel";
+            this.TextLabel.Size = new System.Drawing.Size(105, 19);
+            this.TextLabel.TabIndex = 2;
+            this.TextLabel.Text = "이      름 :";
+            this.TextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // PasswordText
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DarkGray;
-            this.label2.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(212, 158);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 19);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "비밀번호 :";
+            this.PasswordText.AutoSize = true;
+            this.PasswordText.BackColor = System.Drawing.Color.DarkGray;
+            this.PasswordText.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.PasswordText.Location = new System.Drawing.Point(29, 85);
+            this.PasswordText.Name = "PasswordText";
+            this.PasswordText.Size = new System.Drawing.Size(103, 19);
+            this.PasswordText.TabIndex = 3;
+            this.PasswordText.Text = "비밀번호 :";
             // 
-            // button2
+            // UserInsert
             // 
-            this.button2.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(226, 211);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(193, 95);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "INSERT";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button_Mysql_Insert);
+            this.UserInsert.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.UserInsert.Location = new System.Drawing.Point(249, 39);
+            this.UserInsert.Name = "UserInsert";
+            this.UserInsert.Size = new System.Drawing.Size(165, 65);
+            this.UserInsert.TabIndex = 5;
+            this.UserInsert.Text = "INSERT";
+            this.UserInsert.UseVisualStyleBackColor = true;
+            this.UserInsert.Click += new System.EventHandler(this.button_Mysql_Insert);
+            // 
+            // FmuInsert
+            // 
+            this.FmuInsert.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.FmuInsert.Location = new System.Drawing.Point(236, 216);
+            this.FmuInsert.Name = "FmuInsert";
+            this.FmuInsert.Size = new System.Drawing.Size(178, 41);
+            this.FmuInsert.TabIndex = 10;
+            this.FmuInsert.Text = "INSERT";
+            this.FmuInsert.UseVisualStyleBackColor = true;
+            this.FmuInsert.Click += new System.EventHandler(this.button_Fmu_Insert);
+            // 
+            // FmuLabel
+            // 
+            this.FmuLabel.AutoSize = true;
+            this.FmuLabel.BackColor = System.Drawing.Color.DarkGray;
+            this.FmuLabel.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.FmuLabel.Location = new System.Drawing.Point(43, 182);
+            this.FmuLabel.Name = "FmuLabel";
+            this.FmuLabel.Size = new System.Drawing.Size(89, 19);
+            this.FmuLabel.TabIndex = 8;
+            this.FmuLabel.Text = "F  M  U :";
+            this.FmuLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // FmuBox
+            // 
+            this.FmuBox.Location = new System.Drawing.Point(138, 180);
+            this.FmuBox.Name = "FmuBox";
+            this.FmuBox.Size = new System.Drawing.Size(276, 21);
+            this.FmuBox.TabIndex = 6;
+            // 
+            // FmuSelect
+            // 
+            this.FmuSelect.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.FmuSelect.Location = new System.Drawing.Point(33, 216);
+            this.FmuSelect.Name = "FmuSelect";
+            this.FmuSelect.Size = new System.Drawing.Size(165, 41);
+            this.FmuSelect.TabIndex = 11;
+            this.FmuSelect.Text = "File Select";
+            this.FmuSelect.UseVisualStyleBackColor = true;
+            this.FmuSelect.Click += new System.EventHandler(this.button_File_Select);
+            // 
+            // SELECT
+            // 
+            this.SELECT.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SELECT.Location = new System.Drawing.Point(124, 275);
+            this.SELECT.Name = "SELECT";
+            this.SELECT.Size = new System.Drawing.Size(178, 41);
+            this.SELECT.TabIndex = 12;
+            this.SELECT.Text = "SELECT";
+            this.SELECT.UseVisualStyleBackColor = true;
+            this.SELECT.Click += new System.EventHandler(this.button_Fmu_Select);
             // 
             // Mysql
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(606, 408);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.SELECT);
+            this.Controls.Add(this.FmuSelect);
+            this.Controls.Add(this.FmuInsert);
+            this.Controls.Add(this.FmuLabel);
+            this.Controls.Add(this.FmuBox);
+            this.Controls.Add(this.UserInsert);
+            this.Controls.Add(this.PasswordText);
+            this.Controls.Add(this.TextLabel);
             this.Controls.Add(this.pwdBox);
             this.Controls.Add(this.nameBox);
             this.Name = "Mysql";
@@ -105,8 +167,13 @@ namespace AddOnProject
 
         private System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.TextBox pwdBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label PasswordText;
+        private System.Windows.Forms.Button UserInsert;
+        private System.Windows.Forms.Button FmuInsert;
+        private System.Windows.Forms.Label FmuLabel;
+        private System.Windows.Forms.TextBox FmuBox;
+        private System.Windows.Forms.Button FmuSelect;
+        private System.Windows.Forms.Label TextLabel;
+        private System.Windows.Forms.Button SELECT;
     }
 }
