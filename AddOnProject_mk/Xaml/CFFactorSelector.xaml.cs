@@ -47,7 +47,6 @@ namespace AddOnProject
             while (true)
             {
              
-
                 if (range.Value.ToString().Equals("CF_FrictionAir"))
                 {
                     FAGetRow = r;
@@ -75,12 +74,12 @@ namespace AddOnProject
 
 
          
-            range = worksheet.Cells[6, 3];
+            range = worksheet.Cells[FAGetRow, 3];
             range = range.Resize[4, 4];
             range.NumberFormat = "0.00";
 
             // CFFriction Air
-            step = (Int32.Parse(Max_CFFrictionAir.Text) - Int32.Parse(Min_CFFrictionAir.Text)) / 3.0;
+            step = (Convert.ToDouble(Max_CFFrictionAir.Text) - Convert.ToDouble(Min_CFFrictionAir.Text)) / 3.0;
             range = worksheet.Cells[FAGetRow, 3];
             range.Value = Min_CFFrictionAir.Text;
             Temp = Convert.ToDouble(range.Value.ToString());
@@ -98,7 +97,7 @@ namespace AddOnProject
             Temp = Convert.ToDouble(range.Value.ToString());
 
             // CFFriction
-            step = (Int32.Parse(Max_CFFriction.Text) - Int32.Parse(Min_CFFriction.Text)) / 3.0;
+            step = (Convert.ToDouble(Max_CFFriction.Text) - Convert.ToDouble(Min_CFFriction.Text)) / 3.0;
             range = worksheet.Cells[FGetRow, 3];
             range.Value = Min_CFFriction.Text;
             Temp = Convert.ToDouble(range.Value.ToString());
@@ -117,7 +116,7 @@ namespace AddOnProject
 
       
             // CF HeatTransfer
-            step = (Int32.Parse(Max_CFHeatTransfer.Text) - Int32.Parse(Min_CFHeatTransfer.Text)) / 3.0;
+            step = (Convert.ToDouble(Max_CFHeatTransfer.Text) - Convert.ToDouble(Min_CFHeatTransfer.Text)) / 3.0;
             range = worksheet.Cells[HTGetRow, 3];
             range.Value = Min_CFHeatTransfer.Text;
             Temp = Convert.ToDouble(range.Value.ToString());
@@ -135,7 +134,7 @@ namespace AddOnProject
             Temp = Convert.ToDouble(range.Value.ToString());
 
             // HeatTransferAir
-            step = (Int32.Parse(Max_CFHeatTransferAir.Text) - Int32.Parse(Min_CFHeatTransferAir.Text)) / 3.0;
+            step = (Convert.ToDouble(Max_CFHeatTransferAir.Text) - Convert.ToDouble(Min_CFHeatTransferAir.Text)) / 3.0;
             range = worksheet.Cells[HTAGetRow, 3];
             range.Value = Min_CFHeatTransferAir.Text;
             Temp = Convert.ToDouble(range.Value.ToString());
@@ -152,11 +151,20 @@ namespace AddOnProject
             range.Value = Temp + step;
             Temp = Convert.ToDouble(range.Value.ToString());
 
-            range = worksheet.Range["C2:C5"];
-            Range range1 = worksheet.Range["C2:F5"];
+            range = worksheet.Range["C2:"+"C"+(FAGetRow-1)];
+            Range range1 = worksheet.Range["C2:F"+ (FAGetRow - 1)];
             range.AutoFill(range1, XlAutoFillType.xlFillDefault);
 
-            range = worksheet.Range["C4:F9"];
+            if((r-1)!=HTGetRow)
+            {
+                range = worksheet.Range["C" + (HTGetRow + 1) + ":" + "C" + (r - 1)];
+                range1 = worksheet.Range["C" + (HTGetRow + 1) + ":" + "F" + (r - 1)];
+                range.AutoFill(range1, XlAutoFillType.xlFillDefault);
+
+            }    
+
+
+            range = worksheet.Range["C"+FAGetRow+":"+"F"+(r-1)];
             range.Interior.Color = System.Drawing.Color.FromArgb(255, 255, 255);
         
             Close();
@@ -165,11 +173,6 @@ namespace AddOnProject
         private void Cancel_Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-
-        private void Min_CFFrictionAir_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

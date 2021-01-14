@@ -215,6 +215,7 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Sheet\CFFactorSheet.cs" />
     <Compile Include="Xaml\CFFactorSelector.xaml.cs">
       <DependentUpon>CFFactorSelector.xaml</DependentUpon>
     </Compile>
