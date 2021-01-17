@@ -192,15 +192,15 @@ namespace AddOnProject
             {
                 Workbook workbook = _thisApplication.ActiveWorkbook;
                 Worksheet worksheet = workbook.Worksheets["FMU"];
+                
                 Range range = worksheet.Cells[8, 2];
-
                 String filename = range.Value.ToString().Split('\\')[range.Value.ToString().Split('\\').Length - 1];
 
-                if (range.Value.ToString().Contains(FmuBox.Text.ToString()))
+                if (FmuBox.Text.ToString().Contains(filename))
                 {
                     MessageBox.Show(filename);
                 }
-                else { return; }
+                else { MessageBox.Show("FmuBox is Null : Select FMU file"); return; }
 
                 string query = "SELECT fmuname, q, ref_dp, air_dp FROM test_data, fmu WHERE test_data.fmuid=fmu.id and fmuname='" + filename + "'";
 
@@ -221,12 +221,46 @@ namespace AddOnProject
 
                 // 한번만 호출시 이처럼 하면 됩니다. 
                 read.Read();
-                MessageBox.Show(read["fmuname"].ToString() + "\n Q : " + read["q"].ToString() + "\n ref_dprla592000r : "
+                MessageBox.Show("\n Q : " + read["q"].ToString() + "\n ref_dp : "
                            + read["ref_dp"].ToString() + "\n air_dp : " + read["air_dp"].ToString());
-                    
-                read.Close();
-   
 
+                range = worksheet.Cells[16, 1];
+                range.Value = "Test_Data";
+                range.Font.Bold = true;
+                range.Font.Size = 14;
+                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                range = worksheet.Cells[17, 1];
+                range.Value = "Q";
+                range.Font.Size = 12;
+                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                range = worksheet.Cells[18, 1];
+                range.Value = "Ref_dp";
+                range.Font.Size = 12;
+                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                range = worksheet.Cells[19, 1];
+                range.Value = "Air_dp";
+                range.Font.Size = 12;
+                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+
+                range = worksheet.Cells[16, 2];
+                range.Value = "Value";
+                range.Font.Bold = true;
+                range.Font.Size = 14;
+                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                range = worksheet.Cells[17, 2];
+                range.Value = read["q"].ToString();
+                range.Font.Size = 12;
+                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                range = worksheet.Cells[18, 2];
+                range.Value = read["ref_dp"].ToString();
+                range.Font.Size = 12;
+                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                range = worksheet.Cells[19, 2];
+                range.Value = read["air_dp"].ToString();
+                range.Font.Size = 12;
+                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+
+                read.Close();
             }
             catch (Exception ex)
             {
