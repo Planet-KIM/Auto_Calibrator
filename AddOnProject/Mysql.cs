@@ -11,11 +11,16 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Microsoft.Office.Interop.Excel;
 
 namespace AddOnProject
 {
     public partial class Mysql : Form
     {
+        // thisApplication 
+        Microsoft.Office.Interop.Excel.Application _thisApplication = Globals.ThisAddIn.Application;
+
+
         // 폴더 경로 생성
         private static string current_path = Directory.GetCurrentDirectory() + @"\Mysql";
         DirectoryInfo cur_path = new DirectoryInfo(current_path);
@@ -27,6 +32,7 @@ namespace AddOnProject
         // Database에 넣을 값을 합쳐야 하기 때문에 생성자 생성
         private static string value = string.Empty;
         MySqlConnection conn;
+        MySqlDataReader read;
 
         // Database 생성자를 생성하기 위한 class
         public class Database {
@@ -76,7 +82,8 @@ namespace AddOnProject
                     }
                     
                 }
-                catch(Exception e) { MessageBox.Show(e.Message); }         
+                catch(Exception e) { MessageBox.Show(e.Message); }
+
             }
         }
 
@@ -127,7 +134,10 @@ namespace AddOnProject
             if(FmuBox.Text.ToString() == "")
             {
                 return;
-
+            }
+            else if(FmuBox.Text.ToString() == " ")
+            {
+                return;
             }
 
             string query = "INSERT INTO fmu(fmuname) VALUES('" +
@@ -178,6 +188,54 @@ namespace AddOnProject
 
         private void button_Fmu_Select(object sender, EventArgs e)
         {
+            try
+            {
+                Workbook workbook = _thisApplication.ActiveWorkbook;
+                Worksheet worksheet = workbook.Worksheets["FMU"];
+                Range range = worksheet.Cells[8, 2];
+
+                String filename = range.Value.ToString().Split('\\')[range.Value.ToString().Split('\\').Length - 1];
+
+                if (range.Value.ToString().Contains(FmuBox.Text.ToString()))
+                {
+                    MessageBox.Show(filename);
+                }
+                else { return; }
+
+                string query = "SELECT fmuname, q, ref_dp, air_dp FROM test_data, fmu WHERE test_data.fmuid=fmu.id and fmuname='" + filename + "'";
+
+                conn.Open();
+                MySqlCommand command = new MySqlCommand(query, conn);
+                read = command.ExecuteReader();
+               
+               
+                /*
+                // 이 구문은 response 받으려는 결과가 여러 값일 때만 이렇게 하면 됩니다.
+                string result = "";
+                while (read.Read())
+                {
+                    result = read["fmuname"].ToString() + "\n Q : " + read["q"].ToString() + "\n ref_dprla592000r : "
+                           + read["ref_dp"].ToString() + "\n air_dp : " + read["air_dp"].ToString();
+                }
+                */
+
+                // 한번만 호출시 이처럼 하면 됩니다. 
+                read.Read();
+                MessageBox.Show(read["fmuname"].ToString() + "\n Q : " + read["q"].ToString() + "\n ref_dprla592000r : "
+                           + read["ref_dp"].ToString() + "\n air_dp : " + read["air_dp"].ToString());
+                    
+                read.Close();
+   
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
 
         }
     }

@@ -134,9 +134,9 @@ namespace AddOnProject
             // SELECT
             // 
             this.SELECT.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.SELECT.Location = new System.Drawing.Point(124, 275);
+            this.SELECT.Location = new System.Drawing.Point(33, 278);
             this.SELECT.Name = "SELECT";
-            this.SELECT.Size = new System.Drawing.Size(178, 41);
+            this.SELECT.Size = new System.Drawing.Size(165, 41);
             this.SELECT.TabIndex = 12;
             this.SELECT.Text = "SELECT";
             this.SELECT.UseVisualStyleBackColor = true;
