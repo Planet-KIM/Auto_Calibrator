@@ -224,43 +224,41 @@ namespace AddOnProject
                 MessageBox.Show("\n Q : " + read["q"].ToString() + "\n ref_dp : "
                            + read["ref_dp"].ToString() + "\n air_dp : " + read["air_dp"].ToString());
 
-                range = worksheet.Cells[16, 1];
-                range.Value = "Test_Data";
-                range.Font.Bold = true;
-                range.Font.Size = 14;
-                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-                range = worksheet.Cells[17, 1];
-                range.Value = "Q";
-                range.Font.Size = 12;
-                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-                range = worksheet.Cells[18, 1];
-                range.Value = "Ref_dp";
-                range.Font.Size = 12;
-                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-                range = worksheet.Cells[19, 1];
-                range.Value = "Air_dp";
-                range.Font.Size = 12;
-                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                string[] result_name = { "Name(Test)", "Q", "Ref_dp", "Air_dp" };
+                int cell_count = 16;
+                foreach(string name in result_name)
+                {
+                    range = worksheet.Cells[cell_count, 1];
+                    range.Value = name;
+                    range.Font.Bold = true;
+                    range.Font.Size = 13;
+                    range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    range.Interior.Color = Color.LightSkyBlue;
+                    cell_count++;
+                }
 
+                
                 range = worksheet.Cells[16, 2];
                 range.Value = "Value";
                 range.Font.Bold = true;
-                range.Font.Size = 14;
+                range.Font.Size = 13;
                 range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-                range = worksheet.Cells[17, 2];
-                range.Value = read["q"].ToString();
-                range.Font.Size = 12;
-                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-                range = worksheet.Cells[18, 2];
-                range.Value = read["ref_dp"].ToString();
-                range.Font.Size = 12;
-                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-                range = worksheet.Cells[19, 2];
-                range.Value = read["air_dp"].ToString();
-                range.Font.Size = 12;
-                range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                range.Interior.Color = Color.LightSkyBlue;
+
+                string[] result_value = { read["q"].ToString(), read["ref_dp"].ToString(), read["air_dp"].ToString() };
+                int cell_count2 = 17;
+                foreach(string value in result_value)
+                {
+                    range = worksheet.Cells[cell_count2, 2];
+                    range.Value = value;
+                    range.Font.Size = 12;
+                    range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    range.Interior.Color = Color.Gray;
+                    cell_count2++;
+                }
 
                 read.Close();
+                worksheet.Activate();
             }
             catch (Exception ex)
             {
@@ -269,6 +267,7 @@ namespace AddOnProject
             finally
             {
                 conn.Close();
+                this.Close();
             }
 
         }
