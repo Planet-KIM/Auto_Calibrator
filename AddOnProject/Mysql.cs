@@ -382,6 +382,121 @@ namespace AddOnProject
 
         }*/
 
+        /*
+        // ref_air 값을 찾아주는 method입니다.
+        // 예외 처리가 필요합니다. 셀이 비었을 경우나....
+        public void buttonOverall3(Office.IRibbonControl control, double friction, double friction_control)
+        {
+            // Sheet 값 초기화 하기 
+            Workbook workbook = thisApplication.ActiveWorkbook;
+            Worksheet outputsheet = workbook.Worksheets["OutputSheet"];
+            Worksheet fmusheet = workbook.Worksheets["FMU"];
+            Worksheet inputsheet = workbook.Worksheets["InputSheet"];
+
+            // 초기로 삭제하기
+            Range delete_output = outputsheet.Range["C1:F1"];
+            delete_output.EntireColumn.Delete();
+
+            // simaution 하기 전에 friction 값을 변동하기 
+            Range original = inputsheet.Cells[8, 3];
+            original.Value = 0.1;
+
+            for (int num = 4; num < 7; num++)
+            {
+                Range friction_value = inputsheet.Cells[8, num];
+                friction_value.Value = friction;
+                friction += friction_control;
+            }
+
+            try
+            {
+                // 수행할 overall 횟수
+                this.buttonOverall_Click(control);
+
+                // 참조할 셀 영역을 배열로 처리
+                int[] cells = { 8, 24, 10, 22 };
+
+                // DB Test_data Cell - ref_dp
+                Range fmu_range = fmusheet.Cells[18, 2];
+                // Ref_dp 0.1 result in cell
+                Range output_original = outputsheet.Cells[cells[2], 3];
+
+                // 참조영역 for문 하기
+                for (int count = 3; count < 7; count++)
+                {
+                    // Friction의 비례상수 구하기
+                    Range input_friction = inputsheet.Cells[cells[0], count]; //[8,3] [8,4] [8,5] [8,6]
+                    Range output_alpha = outputsheet.Cells[cells[1], count]; // [24,3] [24,4] [24,5] [24,6]
+                    Range output_result = outputsheet.Cells[cells[2], count]; // [10,3] [10,4] [10,5] [10,6]
+                    Range output_rule = outputsheet.Cells[cells[3], count]; // [22, 3] [22, 4] [22, 5] [22,6 ]
+
+                    // 백분율 - ref_dp
+                    double rule_value = (double.Parse(output_result.Value2.ToString()) / double.Parse(fmu_range.Value2.ToString())) * 100;
+                    output_rule.Value = rule_value;
+                    output_rule.Font.Size = 13;
+                    output_rule.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    output_rule.Interior.Color = Color.LightYellow;
+
+                    if (100 < rule_value)
+                    {
+                        double namugi = rule_value - 100;
+                        output_rule.Value = 100 - namugi;
+                    }
+
+                    // 비례상수 출력하기
+                    output_alpha.Value = double.Parse(output_result.Value2.ToString()) * (1 / (double.Parse(output_original.Value2.ToString()) * (double.Parse(input_friction.Value2.ToString()) * 10)));
+                    output_alpha.Font.Size = 13;
+                    output_alpha.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    output_alpha.Interior.Color = Color.LightYellow;
+                }
+
+                // Design - 백분율
+                Range outputR = outputsheet.Range["C21:F21"];
+                outputR.Merge(true);
+                outputR.Value = "백분율(%) - ref_dp";
+                outputR.Font.Bold = true;
+                outputR.Font.Size = 14;
+                outputR.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                outputR.Interior.Color = Color.LightGray;
+
+                // Design - 비례상수
+                Range outputA = outputsheet.Range["C23:F23"];
+                outputA.Merge(true);
+                outputA.Value = "비례 상수(Alpha) - ref_dp";
+                outputA.Font.Bold = true;
+                outputA.Font.Size = 14;
+                outputA.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                outputA.Interior.Color = Color.LightGray;
+
+                string[] cellChar = { "D8", "E8", "F8" };
+
+                int cellChar_count = 0;
+                for (int cell = 4; cell <= 5; cell++)
+                {
+                    Range control_outputA = outputsheet.Cells[22, cell];
+                    Range control_outputB = outputsheet.Cells[22, cell + 1];
+
+                    if (double.Parse(control_outputA.Value2.ToString()) < double.Parse(control_outputB.Value2.ToString()))
+                    {
+                        cellChar_count++;
+                        Range input_frictionA = inputsheet.Range[cellChar[cellChar_count]];
+                        //MessageBox.Show(input_frictionA.Value2.ToString());
+                        Range input_frictionB = inputsheet.Range[cellChar[cellChar_count - 1]];
+                        input_frictionB.Value = double.Parse(input_frictionA.Value2.ToString());
+                    }
+                    else
+                    {
+                        cellChar_count++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }*/
+
+
     }
 
 }
