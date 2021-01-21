@@ -237,7 +237,6 @@ namespace AddOnProject
                     cell_count++;
                 }
 
-                
                 range = worksheet.Cells[16, 2];
                 range.Value = "Value";
                 range.Font.Bold = true;
@@ -269,8 +268,120 @@ namespace AddOnProject
                 conn.Close();
                 this.Close();
             }
-
         }
+
+        /*
+        public void buttonOverall2(Office.IRibbonControl control)
+        {
+            // Sheet 값 초기화 하기 
+            Workbook workbook = thisApplication.ActiveWorkbook;
+            Worksheet outputsheet = workbook.Worksheets["OutputSheet"];
+            Worksheet fmusheet = workbook.Worksheets["FMU"];
+            Worksheet inputsheet = workbook.Worksheets["InputSheet"];
+
+            try
+            {
+                // 초기로 삭제하기 (삭제되는 것 마련)
+                Range delete_output = outputsheet.Range["C1:F1"];
+                delete_output.EntireColumn.Delete();
+
+                int i;
+                for (i = 0; i < 1; i++)
+                {
+                    this.buttonOverall_Click(control);
+                }
+
+                int[] cells = { 11, 16, 6, 18 };
+
+                // DB Test_data Cell
+                Range fmu_range = fmusheet.Cells[19, 2];
+
+                //비례상수 평균
+                double alpha_sum = 0;
+
+                for (int count = 3; count < 7; count++)
+                {
+                    // 백분율 계산 air_dp(result)
+                    Range output_range2 = outputsheet.Cells[cells[0], count]; //[11,3] [11,4] [11, 5] [11, 6]
+
+                    // 백분율 계산 후 여기에 출력
+                    Range output_range1 = outputsheet.Cells[cells[1], count]; //[16,3] [16  ,4] [16, 5] [16, 6]
+                    output_range1.Value = (double.Parse(fmu_range.Value2.ToString()) / double.Parse(output_range2.Value2.ToString())) * 100;
+                    output_range1.Font.Size = 13;
+                    output_range1.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    output_range1.Interior.Color = Color.LightYellow;
+
+
+                    if (100 < output_range1.Value)
+                    {
+                        double namugi = double.Parse(output_range1.Value2.ToString()) - 100;
+                        output_range1.Value = 100 - namugi;
+                    }
+
+                    // Friction_air의 비례상수 구하기
+                    Range input_range1 = inputsheet.Cells[cells[2], count]; //[6,3] [6,4] [6,5] [6,6]
+
+                    // 비례 상수 출력하기
+                    Range output_range3 = outputsheet.Cells[cells[3], count]; // [18,3] [18,4] [18,5] [18,6]
+                    output_range3.Value = double.Parse(output_range2.Value2.ToString()) / double.Parse(input_range1.Value2.ToString());
+                    output_range3.Font.Size = 13;
+                    output_range3.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    output_range3.Interior.Color = Color.LightYellow;
+
+                    alpha_sum += output_range3.Value2;
+                }
+
+                // alpha 값에 대한 평균
+                double alpha_avg = alpha_sum / 4;
+
+                // Design - 백분율
+                //Range outputR = outputsheet.Cells[15, 3];
+                Range outputR = outputsheet.Range["C15:F15"];
+                outputR.Merge(true);
+                outputR.Value = "백분율(%) - air_dp";
+                outputR.Font.Bold = true;
+                outputR.Font.Size = 14;
+                outputR.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                outputR.Interior.Color = Color.LightGray;
+
+                // Design - 비례상수
+                //Range outputA = outputsheet.Cells[17, 3];
+                Range outputA = outputsheet.Range["C17:F17"];
+                outputA.Merge(true);
+                outputA.Value = "비례 상수(Alpha) - air_dp";
+                outputA.Font.Bold = true;
+                outputA.Font.Size = 14;
+                outputA.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                outputA.Interior.Color = Color.LightGray;
+
+                MessageBox.Show("\t 추천 값 \n" +
+                    (double.Parse(fmu_range.Value2.ToString()) / alpha_avg).ToString());
+
+                for (int count = 3; count < 7; count++)
+                {
+                    Range input_range2 = inputsheet.Cells[6, count]; //[6,3] [6,4] [6,5] [6,6]
+                    input_range2.Value = double.Parse(fmu_range.Value2.ToString()) / alpha_avg;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+
+            // 마지막 백분율에 따른 재실행
+            Range total_output = outputsheet.Cells[16, 6];
+            if (98 < double.Parse(total_output.Value2.ToString()))
+            {
+                this.buttonOverall3(control, 0.35, 0.25);
+            }
+            else if (98 > double.Parse(total_output.Value2.ToString()))
+            {
+                this.buttonOverall2(control);
+            }
+
+        }*/
+
     }
 
 }
