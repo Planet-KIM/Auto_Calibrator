@@ -494,6 +494,19 @@ namespace AddOnProject
             {
                 MessageBox.Show(ex.Message);
             }
+            
+            
+            // 백분율에서 97% 이상인 것을 찾습니다.
+            for(int count=3; count < 7; count++)
+            {
+                Range findinput = inputsheet.Cells[8, count];
+                Range findResult = outputsheet.Cells[22, count];
+                if(97 <= double.Parse(findResult.Value2.ToString()))
+                {
+                    MessageBox.Show("Input Value : " + findinput.Value2.ToString() + "\n 백분율(%) : " +  findResult.Value2.ToString());
+                }
+            }
+
         }*/
 
 
