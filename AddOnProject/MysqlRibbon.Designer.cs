@@ -42,6 +42,7 @@ namespace AddOnProject
             this.button1 = this.Factory.CreateRibbonButton();
             this.button2 = this.Factory.CreateRibbonButton();
             this.button3 = this.Factory.CreateRibbonButton();
+            this.CFFactorSelect = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +59,7 @@ namespace AddOnProject
             this.group1.Items.Add(this.button1);
             this.group1.Items.Add(this.button2);
             this.group1.Items.Add(this.button3);
+            this.group1.Items.Add(this.CFFactorSelect);
             this.group1.Label = "group1";
             this.group1.Name = "group1";
             // 
@@ -78,6 +80,12 @@ namespace AddOnProject
             this.button3.Label = "NEW";
             this.button3.Name = "button3";
             this.button3.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.event_New);
+            // 
+            // CFFactorSelect
+            // 
+            this.CFFactorSelect.Label = "CF-Factor";
+            this.CFFactorSelect.Name = "CFFactorSelect";
+            this.CFFactorSelect.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button4_Click);
             // 
             // MysqlRibbon
             // 
@@ -100,6 +108,7 @@ namespace AddOnProject
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button1;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button2;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button3;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton CFFactorSelect;
     }
 
     partial class ThisRibbonCollection

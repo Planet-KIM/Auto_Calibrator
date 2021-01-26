@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using AddOnProject.Xaml;
 
 namespace AddOnProject
 {
@@ -62,6 +62,12 @@ namespace AddOnProject
         {
             Mysql mysql = new Mysql();
             mysql.Show();
+        }
+
+        private void button4_Click(object sender, RibbonControlEventArgs e)
+        {
+            CFFactorSelector cFFactor = new CFFactorSelector();
+            cFFactor.ShowDialog();
         }
     }
 }
